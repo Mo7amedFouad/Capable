@@ -1,4 +1,4 @@
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS) || os(visionOS)
     import UIKit
 #elseif os(OSX)
     import AppKit
@@ -22,7 +22,7 @@ class ReduceMotion: FeatureProtocol {
     }
 
     var isEnabled: Bool {
-        #if os(iOS) || os(tvOS)
+        #if os(iOS) || os(tvOS) || os(visionOS)
 
             return UIAccessibility.isReduceMotionEnabled
 
@@ -44,7 +44,7 @@ class ReduceMotion: FeatureProtocol {
 
 extension ReduceMotion: ObservableFeatureProtocol {
     func registerObservation() {
-        #if os(iOS) || os(tvOS)
+        #if os(iOS) || os(tvOS) || os(visionOS)
 
             notificationCenter.addObserver(
                 self,
